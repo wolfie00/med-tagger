@@ -30,7 +30,7 @@ The data has to be in a .csv format like this:
 </table>
 
 The program will read the .csv files into a Python dictionary. The two columns must be separated by a `\t`. Alternatively, you can load a JSON file directly as a `dict`. Next, the list with the categories (labels) can either be a Python list passed to the `configuration` or a `.txt` file with a label per line.
-For the loss function binary cross-entropy, Focal loss, ASL loss and soft F1 loss are supported. For Focal and ASL losses, you have to specify the respective parameters of each loss.
+For the loss function binary cross-entropy, Focal loss[^5], ASL loss[^6] and soft F1 loss[^7] are supported. For Focal and ASL losses, you have to specify the respective parameters of each loss.
 
 ## Example of Use
 
@@ -90,11 +90,11 @@ t.run()
 
 ## References
 
-[1]  
-[2]
-[3]
-[4]
-[5] Focal loss: Lin et. al "Focal Loss for Dense Object Detection" ( 
-[6] ASL loss: https://arxiv.org/abs/2009.14119
+[^1]  
+[^2]
+[^3]
+[^4]
+[^5] Focal loss: Lin et. al "Focal Loss for Dense Object Detection" Proceedings of the IEEE International Conference on Computer Vision (ICCV),  2017(https://arxiv.org/pdf/1708.02002.pdf)
+[^6] ASL loss: https://arxiv.org/abs/2009.14119
 [^7] soft F1 loss: https://towardsdatascience.com/the-unknown-benefits-of-using-a-soft-f1-loss-in-classification-systems-753902c0105d
 
