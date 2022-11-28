@@ -94,7 +94,7 @@ t.run()
 [2]
 [3]
 [4]
-[5] 
-[6]
-[7] soft F1 loss: https://towardsdatascience.com/the-unknown-benefits-of-using-a-soft-f1-loss-in-classification-systems-753902c0105d
+[5] Focal loss: Lin et. al "Focal Loss for Dense Object Detection" ( 
+[6] ASL loss: https://arxiv.org/abs/2009.14119
+[^7] soft F1 loss: https://towardsdatascience.com/the-unknown-benefits-of-using-a-soft-f1-loss-in-classification-systems-753902c0105d
 
