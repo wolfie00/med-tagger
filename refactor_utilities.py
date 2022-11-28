@@ -10,6 +10,10 @@ from tensorflow_addons.utils.keras_utils import LossFunctionWrapper
 
 
 class GeM(tf.keras.layers.Layer):
+    """
+    GeM global pooling layer
+    Based on: Fine-tuning CNN Image Retrieval with No Human Annotation (https://arxiv.org/pdf/1711.02512.pdf)
+    """
     def __init__(self, data_format='channels_last', init_norm=3.0, normalize=False, **kwargs):
         self.p = None
         self.init_norm = init_norm
@@ -54,6 +58,9 @@ class GeM(tf.keras.layers.Layer):
 
 
 class ReturnBestEarlyStopping(tf.keras.callbacks.EarlyStopping):
+    """
+    Early Stopping class that restores the weights of the best epoch
+    """
     def __init__(self, **kwargs):
         super(ReturnBestEarlyStopping, self).__init__(**kwargs)
 
@@ -67,7 +74,64 @@ class ReturnBestEarlyStopping(tf.keras.callbacks.EarlyStopping):
             self.model.set_weights(self.best_weights)
 
 
+def loss_1_minus_f1_examples(y_true, y_pred):
+    # average over the examples, not labels...
+    tp = tf.keras.backend.sum(tf.keras.backend.cast(y_true * y_pred, 'float'), axis=-1)
+    fp = tf.keras.backend.sum(tf.keras.backend.cast((1 - y_true) * y_pred, 'float'), axis=-1)
+    fn = tf.keras.backend.sum(tf.keras.backend.cast(y_true * (1 - y_pred), 'float'), axis=-1)
+    p = tp / (tp + fp + tf.keras.backend.epsilon())
+    r = tp / (tp + fn + tf.keras.backend.epsilon())
+    f1 = 2 * p * r / (p + r + tf.keras.backend.epsilon())
+    f1 = tf.where(tf.math.is_nan(f1), tf.zeros_like(f1), f1)
+    # print(f1.shape)  # batch size
+    # print((1 - tf.keras.backend.mean(f1)).shape)  # scalar
+    # print((1 - f1).shape)  # batch size
+
+    return 1 - tf.keras.backend.mean(f1)
+
+
+def loss_1_minus_f1_labels(y_true, y_pred):
+    # average over the labels
+    tp = tf.keras.backend.sum(tf.keras.backend.cast(y_true * y_pred, 'float'), axis=0)
+    fp = tf.keras.backend.sum(tf.keras.backend.cast((1 - y_true) * y_pred, 'float'), axis=0)
+    fn = tf.keras.backend.sum(tf.keras.backend.cast(y_true * (1 - y_pred), 'float'), axis=0)
+    p = tp / (tp + fp + tf.keras.backend.epsilon())
+    r = tp / (tp + fn + tf.keras.backend.epsilon())
+    f1 = 2 * p * r / (p + r + tf.keras.backend.epsilon())
+    f1 = tf.where(tf.math.is_nan(f1), tf.zeros_like(f1), f1)
+    # print(f1.shape)  # labels size
+    return 1 - tf.keras.backend.mean(f1)
+
+
+def loss_1mf1_by_bce(y_true, y_pred):
+    """
+    returns f1 loss * bce
+    :param y_true: gold truth vector of the batch
+    :param y_pred: predicted vector of the batch
+    :return: loss value
+    """
+    y_true = tf.cast(y_true, tf.float32)
+    y_pred = tf.cast(y_pred, tf.float32)
+    # print('Y shapes:', y_true.shape, y_pred.shape)
+    loss_f1 = loss_1_minus_f1_examples(y_true, y_pred)
+    # loss_f1 = samples_double_soft_f1(y_true, y_pred)
+    bce = tf.keras.metrics.binary_crossentropy(y_true=y_true, y_pred=y_pred,
+                                               from_logits=False)  # size = batch_size
+    # bce = tf.keras.backend.binary_crossentropy(target=y_true, output=y_pred,
+    #                                            from_logits=False)
+    # print(tf.keras.backend.mean(loss_f1 * bce, axis=1))
+    # print(loss_f1 * bce)
+    # print(tf.reduce_mean(loss_f1 * bce, axis=-1))
+    # tf.debugging.assert_equal(tf.keras.backend.mean(loss_f1 * bce, axis=1), loss_f1 * bce)
+    # print(loss_f1, bce)
+    return loss_f1 * bce  # batch size
+
+
 class AsymmetricLoss(LossFunctionWrapper):
+    """
+    ASL loss: Asymmetric Loss For Multi-Label Classification (https://arxiv.org/abs/2009.14119)
+    Implementation: https://github.com/SmilingWolf/SW-CV-ModelZoo/blob/main/Losses/ASL.py
+    """
     def __init__(
         self,
         gamma_neg=4,
@@ -123,7 +187,18 @@ def asymmetric_loss(y_true, y_pred, gamma_neg=4, gamma_pos=0, clip=0.05, eps=1e-
 
 
 def load_batch(ids, img_index, tags_index,
-               images_path, concepts_list, preprocessor, size=(224, 224, 3)):
+               images_path, tags_list, preprocessor, size=(224, 224, 3)):
+    """
+    loads a batch of data
+    :param ids: indices of samples (list)
+    :param img_index: index of X (dict)
+    :param tags_index: index of Y (dict)
+    :param images_path: path to X (string)
+    :param tags_list: list of tags
+    :param preprocessor: Keras object for preprocessing the images
+    :param size: size of the images (tuple)
+    :return: a batch of data
+    """
     x_data, y_data = list(), list()
 
     for i in ids:
@@ -138,10 +213,10 @@ def load_batch(ids, img_index, tags_index,
             x = np.squeeze(preprocessor(images=img)['pixel_values'])
         x_data.append(x)
 
-        binary_concepts = np.zeros(len(concepts_list), dtype=int)
+        binary_concepts = np.zeros(len(tags_list), dtype=int)
         current_concepts = tags_index[i].split(';')
-        for j in range(0, len(concepts_list)):
-            if concepts_list[j] in current_concepts:
+        for j in range(0, len(tags_list)):
+            if tags_list[j] in current_concepts:
                 binary_concepts[j] = 1
 
         y_data.append(binary_concepts)
@@ -154,6 +229,15 @@ def load_batch(ids, img_index, tags_index,
 
 
 def load_test_batch(ids, img_index, images_path, preprocessor, size=(224, 224, 3)):
+    """
+    loads a batch of data (without labels)
+    :param ids: indices of data (list)
+    :param img_index: index of X (dict)
+    :param images_path: path to X (string)
+    :param preprocessor: Keras object for preprocessing the images
+    :param size: size of the images (tuple)
+    :return: a batch of X
+    """
     x_data = list()
 
     for i in ids:
@@ -175,12 +259,23 @@ def load_test_batch(ids, img_index, images_path, preprocessor, size=(224, 224, 3
 
 
 def create_index(data):
+    """
+    creates the index for the data [index, sample]
+    :param data: data dictionary
+    :return: the indices for images and labels
+    """
     img_index = dict(zip(range(len(data)), list(data)))
     tags_index = dict(zip(range(len(data)), list(data.values())))
     return img_index, tags_index
 
 
 def divisor_generator(n):
+    """
+    finds the divisors of a number
+    Implementation: https://stackoverflow.com/questions/171765/what-is-the-best-way-to-get-all-the-divisors-of-a-number
+    :param n: the number
+    :return: yields a divisor
+    """
     large_divisors = []
     for i in range(1, int(np.sqrt(n) + 1)):
         if n % i == 0:
@@ -191,8 +286,17 @@ def divisor_generator(n):
         yield divisor
 
 
-def evaluate_f1(gt_pairs, candidate_pairs, targets=None, split=None,
-                similarities=None, test=False, report_name=None):
+def evaluate_f1(gt_pairs, candidate_pairs, targets=None, test=False, report_name=None):
+    """
+    function that computes F1 score ('samples' average)
+    Implementation based on the ImageCLEF 2022 campaign (https://www.imageclef.org/2022/medical/caption)
+    :param gt_pairs: dictionary of truth data
+    :param candidate_pairs: dictionary of predictions
+    :param targets: list of tags (optional)
+    :param test: flag for testing (boolean)
+    :param report_name: name for scikit-learn classification report (optional)
+    :return: the F1 score (and additional scores optionally)
+    """
     # Concept stats
     min_concepts = sys.maxsize
     max_concepts = 0
