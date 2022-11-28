@@ -29,6 +29,8 @@ The data has to be in a .csv format like this:
   </tr>
 </table>
 
+The program will read the .csv files into a Python dictionary. Alternatively, you can load a JSON file directly as a `dict`.
+
 ## Example of Use
 
 ```python
