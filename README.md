@@ -1,1 +1,1 @@
-# med-tag-model
+# (Medical) Image Tagger
