@@ -11,6 +11,10 @@ class="center">
 
 ---
 
+## Summary 
+
+A basic multi-label image classification model. Uses an encoder and a classification head. The classification threshold is also tuned. The metric used for evaluation is the F1 score averaged over the test instances ('samples' averaging) based on the [ImageCLEFmedical 2022 Caption](https://www.imageclef.org/2022/medical/caption). You can change based on your preferences. 
+
 ## Dependencies
 
 - TensorFlow 2
