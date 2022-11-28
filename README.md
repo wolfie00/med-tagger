@@ -29,7 +29,8 @@ The data has to be in a .csv format like this:
   </tr>
 </table>
 
-The program will read the .csv files into a Python dictionary. Alternatively, you can load a JSON file directly as a `dict`.
+The program will read the .csv files into a Python dictionary. The two columns must be separated by a `\t`. Alternatively, you can load a JSON file directly as a `dict`. Next, the list with the categories (labels) can either be a Python list passed to the `configuration` or a `.txt` file with a label per line.
+For the loss function binary cross-entropy, Focal loss, ASL loss and soft F1 loss are supported. For Focal and ASL losses, you have to specify the respective parameters of each loss.
 
 ## Example of Use
 
@@ -84,3 +85,16 @@ t = TagCXN(
 
 t.run()
 ```
+
+## TO-DOs
+
+## References
+
+[1]  
+[2]
+[3]
+[4]
+[5] 
+[6]
+[7] soft F1 loss: https://towardsdatascience.com/the-unknown-benefits-of-using-a-soft-f1-loss-in-classification-systems-753902c0105d
+
