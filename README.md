@@ -1,6 +1,6 @@
 # (Medical) Image Tagger
 
-This repository provides a basic model for (medical & imbalanced) multi-label image classification. 
+This repository provides a basic model for (medical & imbalanced) multi-label image classification written in Keras/TensorFlow 2. 
 
 --- 
 
@@ -8,6 +8,14 @@ This repository provides a basic model for (medical & imbalanced) multi-label im
 <img src="image.png" width=100% height=100% 
 class="center">
 </p>
+
+---
+
+## Dependencies
+
+- TensorFlow 2
+- Keras
+- TensorFlow Addons
 
 ## Instructions
 
