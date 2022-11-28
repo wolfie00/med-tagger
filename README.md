@@ -90,11 +90,11 @@ t.run()
 
 ## References
 
-[^1]  
-[^2]
-[^3]
-[^4]
-[^5] Focal loss: Lin et. al "Focal Loss for Dense Object Detection" Proceedings of the IEEE International Conference on Computer Vision (ICCV),  2017(https://arxiv.org/pdf/1708.02002.pdf)
-[^6] ASL loss: https://arxiv.org/abs/2009.14119
-[^7] soft F1 loss: https://towardsdatascience.com/the-unknown-benefits-of-using-a-soft-f1-loss-in-classification-systems-753902c0105d
+[^1]: 
+[^2]:
+[^3]:
+[^4]:
+[^5]: Focal loss: Lin et. al "Focal Loss for Dense Object Detection" Proceedings of the IEEE International Conference on Computer Vision (ICCV),  2017(https://arxiv.org/pdf/1708.02002.pdf)
+[^6]: ASL loss: https://arxiv.org/abs/2009.14119
+[^7]: soft F1 loss: https://towardsdatascience.com/the-unknown-benefits-of-using-a-soft-f1-loss-in-classification-systems-753902c0105d
 
