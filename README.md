@@ -9,10 +9,27 @@ This repository provides a basic model for (medical & imbalanced) multi-label im
 class="center">
 </p>
 
-## Example of Use
+## Instructions
 
 All the parameters are specified by a single Python dictionary that can be passed to the constructor of the class.
+The data has to be in a .csv format like this:
 
+<table>
+  <tr>
+    <th>image</th>
+    <th>labels</th>
+  </tr>
+  <tr>
+    <td>image1</td>
+    <td>tag1;tag2;tag3</td>
+  </tr>
+  <tr>
+    <td>image2</td>
+    <td>tag4;tag1</td>
+  </tr>
+</table>
+
+## Example of Use
 
 ```python
 from tagcxn import TagCXN
