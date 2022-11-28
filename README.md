@@ -88,6 +88,11 @@ t.run()
 
 ## TO-DOs
 
+- [ ] Add Union and Intersection ensembles  
+- [ ] k-NN model
+- [ ] Add code for fine-tuning 
+- [ ] Upload ImageCLEFmedical 2022 checkpoints  
+
 ## References
 
 [1] Charalampakos M.Sc. Thesis ["Exploring Deep Learning Methods for Medical Image Tagging", 2022](http://nlp.cs.aueb.gr/theses/f_charalampakos_msc_thesis.pdf) <br />
