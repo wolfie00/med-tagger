@@ -109,7 +109,8 @@ t.run()
 
 ## References
 
-[1] Charalampakos M.Sc. Thesis ["Exploring Deep Learning Methods for Medical Image Tagging", 2022](http://nlp.cs.aueb.gr/theses/f_charalampakos_msc_thesis.pdf) 
+[1] Charalampakos M.Sc. Thesis ["Exploring Deep Learning Methods for Medical Image Tagging", 2022](http://nlp.cs.aueb.gr/theses/f_charalampakos_msc_thesis.pdf)
+
 ```bibtex
 @unpublished{Charalampakos2022,
   author = "F. Charalampakos",
@@ -135,6 +136,7 @@ t.run()
 ```
 <br />
 [3] Karatzas et al. ["AUEB NLP Group at ImageCLEFmed Caption 2020" Working Notes of the Conference and Labs of the Evaluation Forum (CLEF 2020), 2020](http://nlp.cs.aueb.gr/pubs/AUEB_NLP_Group_at_ImageCLEFmed_Caption_2020.pdf) 
+
 ```bibtex
 @inproceedings{Karatzas2020,
   title="{AUEB NLP Group at ImageCLEFmed Caption 2020}",
@@ -147,7 +149,8 @@ t.run()
 }
 ```
 <br />
-[4] Kougia et al. ["AUEB NLP Group at ImageCLEFmed Caption 2019" Working Notes of the Conference and Labs of the Evaluation Forum (CLEF 2019), 2019](http://nlp.cs.aueb.gr/pubs/paper_136.pdf) 
+[4] Kougia et al. ["AUEB NLP Group at ImageCLEFmed Caption 2019" Working Notes of the Conference and Labs of the Evaluation Forum (CLEF 2019), 2019](http://nlp.cs.aueb.gr/pubs/paper_136.pdf)
+
 ```bibtex
 @inproceedings{Kougia2019,
   title="{AUEB NLP Group at ImageCLEFmed Caption 2019}",
@@ -160,7 +163,8 @@ t.run()
 }
 ```
 <br />
-[5] Focal loss: [Lin et. al "Focal Loss for Dense Object Detection" Proceedings of the IEEE International Conference on Computer Vision (ICCV),  2017](https://arxiv.org/pdf/1708.02002.pdf) 
+[5] Focal loss: [Lin et. al "Focal Loss for Dense Object Detection" Proceedings of the IEEE International Conference on Computer Vision (ICCV),  2017](https://arxiv.org/pdf/1708.02002.pdf)
+
 ```bibtex
 @article{Lin2017Focal,
   title={Focal Loss for Dense Object Detection},
