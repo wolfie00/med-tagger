@@ -120,6 +120,7 @@ t.run()
  ``` 
  <br />
 [2] Charalampakos et al. ["AUEB NLP Group at ImageCLEFmedical Caption 2022" Proceedings of the Conference and Labs of the Evaluation Forum (CLEF 2022), 2022](http://ceur-ws.org/Vol-3180/paper-101.pdf) 
+
 ```bibtex
 @inproceedings{Charalampakos2022,
   title="{AUEB NLP Group at ImageCLEFmedical Caption 2022}",
