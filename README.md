@@ -175,6 +175,7 @@ t.run()
 ```
 <br />
 [6] ASL loss: [Ridnik et. al "Asymmetric Loss For Multi-Label Classification" Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV), 2021](https://openaccess.thecvf.com/content/ICCV2021/papers/Ridnik_Asymmetric_Loss_for_Multi-Label_Classification_ICCV_2021_paper.pdf)
+
 ```bibtex
 @article{Ridnik2021,
   title={Asymmetric Loss For Multi-Label Classification},
