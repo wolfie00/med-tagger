@@ -119,12 +119,83 @@ t.run()
 }
  ``` 
  <br />
-[2] Charalampakos et al. ["AUEB NLP Group at ImageCLEFmedical Caption 2022" Proceedings of the Conference and Labs of the Evaluation Forum (CLEF 2022), 2022](http://ceur-ws.org/Vol-3180/paper-101.pdf) <br />
-[3] Karatzas et al. ["AUEB NLP Group at ImageCLEFmed Caption 2020" Working Notes of the Conference and Labs of the Evaluation Forum (CLEF 2020), 2020](http://nlp.cs.aueb.gr/pubs/AUEB_NLP_Group_at_ImageCLEFmed_Caption_2020.pdf) <br />
-[4] Kougia et al. ["AUEB NLP Group at ImageCLEFmed Caption 2019" Working Notes of the Conference and Labs of the Evaluation Forum (CLEF 2019), 2019](http://nlp.cs.aueb.gr/pubs/paper_136.pdf) <br />
-[5] Focal loss: [Lin et. al "Focal Loss for Dense Object Detection" Proceedings of the IEEE International Conference on Computer Vision (ICCV),  2017](https://arxiv.org/pdf/1708.02002.pdf) <br />
-[6] ASL loss: [Ridnik et. al "Asymmetric Loss For Multi-Label Classification" Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV), 2021](https://openaccess.thecvf.com/content/ICCV2021/papers/Ridnik_Asymmetric_Loss_for_Multi-Label_Classification_ICCV_2021_paper.pdf) <br />
+[2] Charalampakos et al. ["AUEB NLP Group at ImageCLEFmedical Caption 2022" Proceedings of the Conference and Labs of the Evaluation Forum (CLEF 2022), 2022](http://ceur-ws.org/Vol-3180/paper-101.pdf) 
+```bibtex
+@inproceedings{Charalampakos2022,
+  title="{AUEB NLP Group at ImageCLEFmedical Caption 2022}",
+  author="F. Charalampakos and G. Zachariadis and J. Pavlopoulos and V. Karatzas and C. Trakas and I. Androutsopoulos",
+  booktitle="CLEF2022 Working Notes",
+  series = "{CEUR} Workshop Proceedings",
+  publisher = "CEUR-WS.org",
+  year="2022",
+  pages = "1355-1373",
+  address="Bologna, Italy"
+}
+```
+<br />
+
+[3] Karatzas et al. ["AUEB NLP Group at ImageCLEFmed Caption 2020" Working Notes of the Conference and Labs of the Evaluation Forum (CLEF 2020), 2020](http://nlp.cs.aueb.gr/pubs/AUEB_NLP_Group_at_ImageCLEFmed_Caption_2020.pdf) 
+```bibtex
+@inproceedings{Karatzas2020,
+  title="{AUEB NLP Group at ImageCLEFmed Caption 2020}",
+  author="B. Karatzas and V. Kougia and J. Pavlopoulos and I. Androutsopoulos",
+  booktitle="CLEF2020 Working Notes",
+  series = "{CEUR} Workshop Proceedings",
+  publisher = "CEUR-WS.org",
+  year="2020",
+  address="Thessaloniki, Greece"
+}
+```
+<br />
+
+[4] Kougia et al. ["AUEB NLP Group at ImageCLEFmed Caption 2019" Working Notes of the Conference and Labs of the Evaluation Forum (CLEF 2019), 2019](http://nlp.cs.aueb.gr/pubs/paper_136.pdf) 
+```bibtex
+@inproceedings{Kougia2019,
+  title="{AUEB NLP Group at ImageCLEFmed Caption 2019}",
+  author="V. Kougia and J. Pavlopoulos and I. Androutsopoulos",
+  booktitle="CLEF2019 Working Notes",
+  series = "{CEUR} Workshop Proceedings",
+  publisher = "CEUR-WS.org",
+  year="2019",
+  address="Lugano, Switzerland"
+}
+```
+<br />
+
+[5] Focal loss: [Lin et. al "Focal Loss for Dense Object Detection" Proceedings of the IEEE International Conference on Computer Vision (ICCV),  2017](https://arxiv.org/pdf/1708.02002.pdf) 
+```bibtex
+@article{Lin2017Focal,
+  title={Focal Loss for Dense Object Detection},
+  author={T. Lin and P. Goyal and R. B. Girshick and K. He and P. Doll{\'a}r},
+  journal={IEEE International Conference on Computer Vision (ICCV)},
+  year={2017},
+  address = "Venice, Italy",
+  pages={2999-3007}
+}
+```
+<br />
+[6] ASL loss: [Ridnik et. al "Asymmetric Loss For Multi-Label Classification" Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV), 2021](https://openaccess.thecvf.com/content/ICCV2021/papers/Ridnik_Asymmetric_Loss_for_Multi-Label_Classification_ICCV_2021_paper.pdf)
+```bibtex
+@article{Ridnik2021,
+  title={Asymmetric Loss For Multi-Label Classification},
+  author={T. Ridnik and E. Ben Baruch and N. Zamir and A. Noy and I. Friedman and M. Protter and L. Zelnik-Manor},
+  journal={2021 IEEE/CVF International Conference on Computer Vision (ICCV)},
+  year={2021},
+  address="Online",
+  pages={82-91}
+}
+```
+<br />
 [7] [ASL loss implementation](https://github.com/SmilingWolf/SW-CV-ModelZoo/blob/main/Losses/ASL.py) <br />
 [8] [soft F1 loss](https://towardsdatascience.com/the-unknown-benefits-of-using-a-soft-f1-loss-in-classification-systems-753902c0105d) <br />
 [9] SAM: [Foret et al. "Sharpness-aware Minimization for Efficiently Improving Generalization" ICLR 2021](https://iclr.cc/virtual/2021/poster/2782) 
+```bibtex
+@inproceedings{Foret21,
+title={Sharpness-aware Minimization for Efficiently Improving Generalization},
+author={P. Foret and A. Kleiner and H. Mobahi and B. Neyshabur},
+booktitle={International Conference on Learning Representations},
+year={2021},
+address = {Online}
+}
+```
 
