@@ -13,7 +13,7 @@ class="center">
 
 ## Summary 
 
-A basic multi-label image classification model. Uses an encoder and a classification head. The classification threshold is also tuned using the validation data. The metric used for evaluation is the F1 score averaged over the test instances ('samples' averaging) based on the [ImageCLEFmedical 2022 Caption](https://www.imageclef.org/2022/medical/caption). You can change based on your preferences. 
+A basic multi-label image classification model. Uses an encoder and a classification head. The classification threshold is also tuned using the validation data. The metric used for evaluation is the F1 score averaged over the test instances ('samples' averaging) based on the [ImageCLEFmedical 2022 Caption](https://www.imageclef.org/2022/medical/caption). You can change this based on your preferences. 
 
 ## Dependencies
 
@@ -41,7 +41,9 @@ The data has to be in a .csv format like this:
   </tr>
 </table>
 
-The program will read the `.csv` files into a Python dictionary. If there are headers in your file, you have to use `skip_head=True`. The two columns must be separated by a `\t`. Alternatively, you can load a JSON file directly as a `dict`. Next, the list with the categories (labels) can either be a Python list passed to the `configuration` or a `.txt` file with a label per line.
+The program will read the `.csv` files into a Python dictionary. If there are headers in your file, you have to use `skip_head=True`. The two columns must be separated by a `\t`. Alternatively, you can load a JSON file `{image1: 'tag1;tag2', ...}' directly as a `dict`. 
+
+Next, the list with the categories (labels) can either be a Python list passed to the `configuration` or a `.txt` file with a label per line.
 For the loss function binary cross-entropy, Focal loss[5], ASL loss[6] and soft F1 loss[7] are supported. For Focal and ASL losses, you have to specify the respective parameters of each loss.
 
 ## Example of Use
