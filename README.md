@@ -111,15 +111,12 @@ t.run()
 
 [1] Charalampakos M.Sc. Thesis ["Exploring Deep Learning Methods for Medical Image Tagging", 2022](http://nlp.cs.aueb.gr/theses/f_charalampakos_msc_thesis.pdf) 
 ```bibtex
-@misc{leondgarse,
-      author = {Leondgarse},
-      title = {Keras CV Attention Models},
-      year = {2022},
-      publisher = {GitHub},
-      journal = {GitHub repository},
-      doi = {10.5281/zenodo.6506947},
-      howpublished = {\url{https://github.com/leondgarse/keras_cv_attention_models}}
-    }
+@unpublished{Charalampakos2022,
+  author = "F. Charalampakos",
+  title = "Exploring Deep Learning Methods for Medical Image Tagging",
+  year = "2022",
+  note = "M.Sc. thesis, Department of Informatics, Athens University of Economics and Business}
+}
  ``` 
  <br />
 [2] Charalampakos et al. ["AUEB NLP Group at ImageCLEFmedical Caption 2022" Proceedings of the Conference and Labs of the Evaluation Forum (CLEF 2022), 2022](http://ceur-ws.org/Vol-3180/paper-101.pdf) <br />
