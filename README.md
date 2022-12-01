@@ -189,6 +189,7 @@ t.run()
 [7] [ASL loss implementation](https://github.com/SmilingWolf/SW-CV-ModelZoo/blob/main/Losses/ASL.py) <br />
 [8] [soft F1 loss](https://towardsdatascience.com/the-unknown-benefits-of-using-a-soft-f1-loss-in-classification-systems-753902c0105d) <br />
 [9] SAM: [Foret et al. "Sharpness-aware Minimization for Efficiently Improving Generalization" ICLR 2021](https://iclr.cc/virtual/2021/poster/2782) 
+
 ```bibtex
 @inproceedings{Foret21,
 title={Sharpness-aware Minimization for Efficiently Improving Generalization},
@@ -198,4 +199,5 @@ year={2021},
 address = {Online}
 }
 ```
+<br />
 
