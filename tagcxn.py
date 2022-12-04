@@ -5,7 +5,7 @@ import os
 import numpy as np
 from tqdm import tqdm
 
-import refactor_utilities as utils
+import utilities as utils
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '1'
 
