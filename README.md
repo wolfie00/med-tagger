@@ -55,6 +55,9 @@ import tensorflow as tf
 
 configuration = {
     'data': {
+        'train_images_folder': '...',  # path to folder of training images
+        'val_images_folder': '...',  # path to folder of validation images
+        'test_images_folder': '...',  # path to folder of testing images
         'train_data_path': '...',  # .csv file or json file
         'val_data_path': '...',  # .csv file or json file
         'test_data_path': '...',  # .csv file or json file
