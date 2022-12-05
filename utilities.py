@@ -214,6 +214,8 @@ def load_batch(ids, img_index, tags_index,
         x_data.append(x)
 
         binary_concepts = np.zeros(len(tags_list), dtype=int)
+        if isinstance(tags_index[i], list):
+            tags_index[i] = ';'.join(tags_index[i])
         current_concepts = tags_index[i].split(';')
         for j in range(0, len(tags_list)):
             if tags_list[j] in current_concepts:
