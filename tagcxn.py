@@ -98,7 +98,10 @@ class TagCXN:
         #     return [line.strip() for line in open(tags, 'r')]
         tags = list()
         for img in training_data:
-            tags.extend(training_data[img].split(';'))
+            if isinstance(training_data[img], str):
+                tags.extend(training_data[img].split(';'))
+            else:
+                tags.extend(training_data[img])
         tags = set(tags)
         return list(tags)
 
