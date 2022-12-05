@@ -16,7 +16,7 @@ class TagCXN:
 
     def __init__(self, configuration):
         self.configuration = configuration
-        self.backbone = self.configuration['model']['backbone']
+        self.backbone = self.configuration['model']['backbone'] 
         self.preprocessor = self.configuration['model']['preprocessor']
         self.train_images_folder = self.configuration['data']['train_images_folder']
         self.val_images_folder = self.configuration['data']['val_images_folder']
