@@ -354,6 +354,7 @@ def evaluate_f1(gt_pairs, candidate_pairs, targets=None, test=False, report_name
                 f1score = 1
                 p = 1
                 r = 1
+                max_score += 1
         else:
 
             y_true_all.append(set(gt_concepts))
