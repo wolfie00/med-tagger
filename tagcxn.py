@@ -53,7 +53,7 @@ class TagCXN:
 
         self.train_img_index, self.train_concepts_index = utils.create_index(self.train_data)
         self.val_img_index, self.val_concepts_index = utils.create_index(self.val_data)
-        self.test_img_index, _ = utils.create_index(self.test_data)
+        self.test_img_index, _ = utils.create_index(self.test_data) 
 
         self.tags_list = self.load_tags(self.train_data)
         print('Number of categories:', len(self.tags_list))
