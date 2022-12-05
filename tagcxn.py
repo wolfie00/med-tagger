@@ -56,6 +56,7 @@ class TagCXN:
         self.test_img_index, _ = utils.create_index(self.test_data)
 
         self.tags_list = self.load_tags(self.train_data)
+        print('Number of categories:', len(self.tags_list))
 
     @staticmethod
     def load_csv_data(file_name, skip_head=False):
