@@ -253,7 +253,7 @@ class TagCXN:  # base model class
                 if i != len(ids):
                     if len(batch) == batch_size:
                         yield utils.load_batch(batch, self.val_img_index,
-                                               self.val_images_folder, self.val_data_path,
+                                               self.val_concepts_index, self.val_images_folder,
                                                train_tags, self.preprocessor, size=self.img_size, )
                         batch *= 0
                 else:
