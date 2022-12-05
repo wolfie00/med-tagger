@@ -12,7 +12,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '1'
 import tensorflow as tf
 
 
-class TagCXN:
+class TagCXN:  # base model class
 
     def __init__(self, configuration):
         self.configuration = configuration
