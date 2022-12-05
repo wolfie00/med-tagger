@@ -65,7 +65,6 @@ configuration = {
         'test_data_path': '...',  # .csv file or json file
         'skip_head': False,
         'img_size': (224, 224, 3),
-        'tags': ['...', '...', '...']  # this can also be a path to a .txt file with the labels
     },
     'model': {
         # any instance of tf.keras.Model with its output being the representation of the image (not logits)
