@@ -48,6 +48,8 @@ For the loss function binary cross-entropy, Focal loss[5], ASL loss[6] and soft 
 
 ## Example of Use
 
+If you have the images stored in a single folder, pass the same folder path to the first 3 arguments.
+
 ```python
 from tagcxn import TagCXN
 
