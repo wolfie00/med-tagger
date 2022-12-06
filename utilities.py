@@ -328,10 +328,13 @@ def evaluate_f1(gt_pairs, candidate_pairs, targets=None, test=False, report_name
     for image_key in candidate_pairs:
         # Get candidate and GT concepts
         candidate_concepts = candidate_pairs[image_key].upper()
-        gt_concepts = gt_pairs[image_key].upper()
+        gt_concepts = gt_pairs[image_key]
 
         if isinstance(gt_concepts, list):
             gt_concepts = ';'.join(gt_concepts)
+            gt_concepts = gt_concepts.upper()
+        else:
+            gt_concepts = gt_concepts.upper()
 
         # Split concept string into concept array
         # Manage empty concept lists
