@@ -86,7 +86,13 @@ class TagCXN:  # base model class
         :return: data dictionary (dict)
         """
         print('Data loaded from:', file_name)
-        return json.load(open(file=file_name, mode='r'))
+        og = json.load(open(file=file_name, mode='r'))
+        data = dict()
+        for img in og:
+            if 'normal' in og[img] and len(og[img]) == 1:
+                og[img].remove('normal')
+            data[img] = og[img]
+        return data
 
     @staticmethod
     def load_tags(training_data):
