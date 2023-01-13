@@ -143,7 +143,7 @@ class TagCXN:  # base model class
             z = utils.GeM(name='gem_pool', data_format=data_format)(z)
 
         if repr_dropout != 0.:
-            z = tf.keras.layers.Dropout(rate=repr_dropout, name='repr_dropout')
+            z = tf.keras.layers.Dropout(rate=repr_dropout, name='repr_dropout')(z)
         for i, units in enumerate(mlp_hidden_layers):
             z = tf.keras.layers.Dense(units=units, activation='relu', name=f'MLP-layer-{i}')(z)
             if mlp_dropout != 0.:
