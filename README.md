@@ -109,7 +109,6 @@ t.run()
 - [ ] Add Union and Intersection ensembles  
 - [ ] k-NN model
 - [ ] Add code for fine-tuning 
-- [ ] Upload ImageCLEFmedical 2022 checkpoints  
 
 ## References
 
