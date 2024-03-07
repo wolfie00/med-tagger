@@ -59,7 +59,7 @@ class TagCXN:  # base model class
         print('Number of categories:', len(self.tags_list))
 
     @staticmethod
-    def load_csv_data(file_name, skip_head=False):
+    def load_csv_data(file_name, skip_head=False, split_token='\t'):
         """
         loads .csv file into a Python dictionary.
         :param file_name: the path to the file (string)
@@ -71,7 +71,7 @@ class TagCXN:  # base model class
             if skip_head:
                 next(f)
             for line in f:
-                image = line.replace('\n', '').split('\t')
+                image = line.replace('\n', '').split(split_token)
                 concepts = image[1].split(';')
                 if image[0]:
                     data[str(image[0] + '.jpg')] = ';'.join(concepts)
