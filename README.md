@@ -41,7 +41,7 @@ The data has to be in a .csv format like this:
   </tr>
 </table>
 
-The program will read the `.csv` files into a Python dictionary. If there are headers in your file, you have to use `skip_head=True`. The two columns must be separated by a `\t`. Alternatively, you can load a JSON file `{image1: 'tag1;tag2', ...}` directly as a `dict`. 
+The program will read the `.csv` files into a Python dictionary. If there are headers in your file, you have to use `skip_head=True`. The two columns must be separated by a split token, the default is `\t`. Alternatively, you can load a JSON file `{image1: 'tag1;tag2', ...}` directly as a `dict`. 
 
 Next, the list with the categories (labels) can either be a Python list passed to the `configuration` or a `.txt` file with a label per line.
 For the loss function binary cross-entropy, Focal loss[5], ASL loss[6] and soft F1 loss[7] are supported. For Focal and ASL losses, you have to specify the respective parameters of each loss.
