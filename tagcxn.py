@@ -33,17 +33,20 @@ class TagCXN:  # base model class
 
         self.model = None
 
-    def init_structures(self, skip_head=False):
+    def init_structures(self, skip_head=False, split_token='\t'):
         if '.csv' in self.train_data_path:
-            self.train_data = self.load_csv_data(self.train_data_path, skip_head=skip_head)
+            self.train_data = self.load_csv_data(self.train_data_path, skip_head=skip_head, 
+                                                 split_token=split_token)
         else:
             self.train_data = self.load_json_data(self.train_data_path)
         if '.csv' in self.val_data_path:
-            self.val_data = self.load_csv_data(self.val_data_path, skip_head=skip_head)
+            self.val_data = self.load_csv_data(self.val_data_path, skip_head=skip_head,
+                                               split_token=split_token)
         else:
             self.val_data = self.load_json_data(self.val_data_path)
         if '.csv' in self.test_data_path:
-            self.test_data = self.load_csv_data(self.test_data_path, skip_head=skip_head)
+            self.test_data = self.load_csv_data(self.test_data_path, skip_head=skip_head, 
+                                                split_token=split_token)
         else:
             self.test_data = self.load_json_data(self.test_data_path)
 
@@ -298,7 +301,8 @@ class TagCXN:  # base model class
         core logic of the file --> train, tune and test
         :return: a test score float, the test results in a dictionary format and a textual summary
         """
-        self.init_structures(skip_head=self.configuration['data']['skip_head'])
+        self.init_structures(skip_head=self.configuration['data']['skip_head'], 
+                             split_token=self.configuration['data']['split_token'])
 
         train_parameters = self.configuration['training_parameters']
         train_parameters.update(self.configuration['model_parameters'])
